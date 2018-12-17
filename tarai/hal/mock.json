@@ -1,0 +1,38 @@
+[
+    {
+        "class": "HAL",
+        "downstream": {
+            "HT1": {
+                "class": "edge",
+                "physical": "382a00a",
+                "info": "heater @tank1",
+                "engine": "/bin/edge1.py"
+            },
+            "HTg1": {
+                "class": "edge",
+                "physical": "399ff1",
+                "info": "temp_gauge @tank1",
+                "engine": "/bin/edge2.py"
+            },
+            "stbtank": {
+                "class": "node",
+                "ip": "192.168.1.3",
+                "authentication": "Basic",
+                "id": "pi",
+                "pass": "raspberry",
+                "info": "temp_gauge @tank1"
+            }
+        },
+        "updtream": {
+            "super": {
+                "class": "node",
+                "url": "192.168.1.2",
+                "authentication": "Digest",
+                "id": "pi",
+                "pass": "raspberry",
+                "key": "/etc/apikey.rsa",
+                "info": "super node"
+            }
+        }
+    }
+]
